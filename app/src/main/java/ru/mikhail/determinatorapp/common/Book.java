@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Book implements Parcelable {
+    int id;
     String name;
     int year;
     String[] authors;
@@ -11,6 +12,16 @@ public class Book implements Parcelable {
     String content;
 
     public Book(String name, int year, String[] authors, String[] groups, String content) {
+        this.id = -1;
+        this.name = name;
+        this.year = year;
+        this.authors = authors;
+        this.groups = groups;
+        this.content = content;
+    }
+
+    public Book(int id, String name, int year, String[] authors, String[] groups, String content) {
+        this.id = id;
         this.name = name;
         this.year = year;
         this.authors = authors;
@@ -19,6 +30,7 @@ public class Book implements Parcelable {
     }
 
     public Book(Parcel parcel) {
+        id = parcel.readInt();
         name = parcel.readString();
         year = parcel.readInt();
         authors = parcel.createStringArray();
@@ -45,11 +57,20 @@ public class Book implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(name);
         dest.writeInt(year);
         dest.writeStringArray(authors);
         dest.writeStringArray(groups);
         dest.writeString(content);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

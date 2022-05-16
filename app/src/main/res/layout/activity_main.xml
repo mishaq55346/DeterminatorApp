@@ -38,7 +38,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/begin_button"
         android:onClick="click3"
-        android:text="Button"
+        android:text="add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
@@ -50,7 +50,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/begin_button"
         android:onClick="click4"
-        android:text="Button"
+        android:text="show last"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />

@@ -4,7 +4,6 @@ import com.j256.ormlite.dao.BaseDaoImpl;
 import com.j256.ormlite.support.ConnectionSource;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,4 +25,10 @@ public class BookDAO extends BaseDaoImpl<BookDTO, Integer> {
                 .map(BookDTO::toBook)
                 .collect(Collectors.toList());
     }
+
+    public Book getBook(int id) throws SQLException {
+        BookDTO bookDTO = queryForId(id);
+        return bookDTO.toBook();
+    }
+
 }
