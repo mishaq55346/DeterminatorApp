@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Theme.DeterminatorApp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/custom_background_main"
+    android:theme="@style/Theme.DeterminatorApp">
+
+    <TextView
+        android:id="@+id/screenName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="29dp"
+        android:text="Определитель"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintBottom_toTopOf="@+id/determinatorNameTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/determinatorRolesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="Видно для групп:"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintBottom_toTopOf="@+id/determinatorRoles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/determinatorYear" />
+
+    <TextView
+        android:id="@+id/determinatorYearTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="Издание:"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintBottom_toTopOf="@+id/determinatorYear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/determinatorAuthor" />
+
+    <TextView
+        android:id="@+id/determinatorAuthorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="Автор(ы):"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintBottom_toTopOf="@+id/determinatorAuthor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/determinatorName" />
+
+    <TextView
+        android:id="@+id/determinatorNameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="Название:"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintBottom_toTopOf="@+id/determinatorName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/screenName" />
+
+    <TextView
+        android:id="@+id/determinatorAuthor"
+        android:layout_width="327dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintBottom_toTopOf="@+id/determinatorYearTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/determinatorAuthorTitle" />
+
+    <TextView
+        android:id="@+id/determinatorRoles"
+        android:layout_width="327dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="315dp"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/determinatorRolesTitle" />
+
+    <TextView
+        android:id="@+id/determinatorYear"
+        android:layout_width="327dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="23dp"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintBottom_toTopOf="@+id/determinatorRolesTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/determinatorYearTitle" />
+
+    <TextView
+        android:id="@+id/determinatorName"
+        android:layout_width="327dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="19dp"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintBottom_toTopOf="@+id/determinatorAuthorTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/determinatorNameTitle" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/begin_button"
+        android:text="Начать определение"
+        android:textColor="@color/custom_background_main"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/determinatorRoles"
+        app:layout_constraintVertical_bias="0.333" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
