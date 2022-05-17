@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import ru.mikhail.determinatorapp.R;
 import ru.mikhail.determinatorapp.common.Book;
@@ -45,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void click4(View view) {
         //show shit
+        String textToShow = "nothing to show";
+        List<Book> booksList = loader.getBooksList();
+        if (booksList.size() != 0){
+            textToShow = "";
+            textToShow += "there is " + booksList.size() + " entries: [";
+            textToShow += booksList.stream().map(Book::getName).collect(Collectors.joining(","));
+            textToShow += "]";
+        }
+        Toast.makeText(this, textToShow, Toast.LENGTH_SHORT).show();
     }
 
     public void click5(View view) {

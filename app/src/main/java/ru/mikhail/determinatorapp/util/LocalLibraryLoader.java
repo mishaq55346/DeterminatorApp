@@ -1,6 +1,7 @@
 package ru.mikhail.determinatorapp.util;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import ru.mikhail.determinatorapp.common.Book;
 import ru.mikhail.determinatorapp.orm.BookDAO;
@@ -17,12 +18,13 @@ public class LocalLibraryLoader {
         }
     }
 
-    public void getBooksList(){
+    public List<Book> getBooksList(){
         try {
-            bookDAO.getBooksList();
+            return bookDAO.getBooksList();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return null;
     }
 
     public Book getBook(int id){
