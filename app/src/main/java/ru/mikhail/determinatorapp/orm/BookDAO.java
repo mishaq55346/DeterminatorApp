@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import ru.mikhail.determinatorapp.common.Book;
+import ru.mikhail.determinatorapp.common.BookDTO;
 
 public class BookDAO extends BaseDaoImpl<BookDTO, Integer> {
 
@@ -18,7 +19,7 @@ public class BookDAO extends BaseDaoImpl<BookDTO, Integer> {
 
     public List<Book> getBooksList() throws SQLException {
         List<BookDTO> list = query(queryBuilder()
-                .selectColumns("name", "year", "authors", "groups")
+                .selectColumns("id", "name", "year", "authors", "groups", "content")
                 .prepare());
         return list
                 .stream()

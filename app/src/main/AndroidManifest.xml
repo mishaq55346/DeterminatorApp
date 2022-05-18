@@ -9,7 +9,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DeterminatorApp">
+        android:theme="@style/Theme.DeterminatorApp"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">
@@ -24,6 +25,14 @@
         </activity>
         <activity
             android:name=".activities.LocalLibraryActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".activities.DeterminationActivity"
             android:exported="true">
         </activity>
     </application>

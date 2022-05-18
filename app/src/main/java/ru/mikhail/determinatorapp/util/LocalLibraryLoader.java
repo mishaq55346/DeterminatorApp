@@ -5,7 +5,7 @@ import java.util.List;
 
 import ru.mikhail.determinatorapp.common.Book;
 import ru.mikhail.determinatorapp.orm.BookDAO;
-import ru.mikhail.determinatorapp.orm.BookDTO;
+import ru.mikhail.determinatorapp.common.BookDTO;
 import ru.mikhail.determinatorapp.orm.HelperFactory;
 
 public class LocalLibraryLoader {

@@ -7,6 +7,19 @@
     android:background="#9E5C5C"
     tools:context=".activities.MainActivity">
 
+    <TextView
+        android:id="@+id/screenName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:text="Отладочный экран выбора активности"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <Button
         android:id="@+id/button1"
         android:layout_width="195dp"
@@ -14,7 +27,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/begin_button"
         android:onClick="click1"
-        android:text="Button"
+        android:text="Описание определителя"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +39,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/begin_button"
         android:onClick="click2"
-        android:text="Button"
+        android:text="Локальная библиотека"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button1" />
@@ -38,7 +51,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/begin_button"
         android:onClick="click3"
-        android:text="add"
+        android:text="Профиль"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
@@ -50,7 +63,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/begin_button"
         android:onClick="click4"
-        android:text="show last"
+        android:text="Определение по книге"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />

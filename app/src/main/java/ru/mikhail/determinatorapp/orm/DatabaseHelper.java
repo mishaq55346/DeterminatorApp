@@ -10,7 +10,7 @@ import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
 
-import ru.mikhail.determinatorapp.common.Book;
+import ru.mikhail.determinatorapp.common.BookDTO;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
