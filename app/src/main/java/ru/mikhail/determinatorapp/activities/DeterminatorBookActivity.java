@@ -36,7 +36,7 @@ public class DeterminatorBookActivity extends AppCompatActivity {
 
         authors.setText(String.join("\n", book.getAuthors()));
         groups.setText(String.join("\n", book.getGroups()));
-        name.setText(book.getName());
+        name.setText(book.getTitle());
         year.setText(String.valueOf(book.getYear()));
     }
 

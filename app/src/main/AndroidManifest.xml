@@ -3,7 +3,7 @@
     package="ru.mikhail.determinatorapp">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:name=".DeterminatorApp"
+        android:name=".Determinator"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -33,6 +33,14 @@
         </activity>
         <activity
             android:name=".activities.DeterminationActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".activities.ResultsActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".activities.GlobalLibraryActivity"
             android:exported="true">
         </activity>
     </application>

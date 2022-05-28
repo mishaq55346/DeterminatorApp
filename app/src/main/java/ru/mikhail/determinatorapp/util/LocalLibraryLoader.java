@@ -43,4 +43,12 @@ public class LocalLibraryLoader {
             throwables.printStackTrace();
         }
     }
+
+    public void deleteBook(int id){
+        try {
+            bookDAO.deleteById(id);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }

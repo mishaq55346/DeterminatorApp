@@ -2,6 +2,8 @@ package ru.mikhail.determinatorapp.determination;
 
 import java.util.Map;
 
+import ru.mikhail.determinatorapp.common.LifeForm;
+
 public class Node {
     int keyToGo;
     String description;

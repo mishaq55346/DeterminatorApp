@@ -5,24 +5,26 @@ import android.os.Parcelable;
 
 public class Book implements Parcelable {
     int id;
-    String name;
+    String title;
     int year;
     String[] authors;
     String[] groups;
     String content;
 
-    public Book(String name, int year, String[] authors, String[] groups, String content) {
+    public Book() {}
+
+    public Book(String title, int year, String[] authors, String[] groups, String content) {
         this.id = -1;
-        this.name = name;
+        this.title = title;
         this.year = year;
         this.authors = authors;
         this.groups = groups;
         this.content = content;
     }
 
-    public Book(int id, String name, int year, String[] authors, String[] groups, String content) {
+    public Book(int id, String title, int year, String[] authors, String[] groups, String content) {
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.year = year;
         this.authors = authors;
         this.groups = groups;
@@ -31,7 +33,7 @@ public class Book implements Parcelable {
 
     public Book(Parcel parcel) {
         id = parcel.readInt();
-        name = parcel.readString();
+        title = parcel.readString();
         year = parcel.readInt();
         authors = parcel.createStringArray();
         groups = parcel.createStringArray();
@@ -58,7 +60,7 @@ public class Book implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeString(name);
+        dest.writeString(title);
         dest.writeInt(year);
         dest.writeStringArray(authors);
         dest.writeStringArray(groups);
@@ -73,12 +75,12 @@ public class Book implements Parcelable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public int getYear() {

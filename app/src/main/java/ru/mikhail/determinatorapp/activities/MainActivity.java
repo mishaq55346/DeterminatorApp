@@ -4,33 +4,34 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
-import java.util.List;
-import java.util.Random;
-import java.util.stream.Collectors;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import ru.mikhail.determinatorapp.Determinator;
 import ru.mikhail.determinatorapp.R;
 import ru.mikhail.determinatorapp.common.Book;
-import ru.mikhail.determinatorapp.common.UserDTO;
 import ru.mikhail.determinatorapp.util.LocalLibraryLoader;
 
 public class MainActivity extends AppCompatActivity {
+    LocalLibraryLoader loader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        loader = new LocalLibraryLoader();
     }
 
     public void click1(View view) {
-        Intent intent = new Intent(MainActivity.this, DeterminatorBookActivity.class);
-        Book book = new Book("Краткий определитель хуйни", 228,
-                new String[]{"М.В. Чертила", "Е.С. Чертила"},
-                new String[]{"MSU", "MPGU"}, "");
-        intent.putExtra("book", book);
+        Intent intent = new Intent(MainActivity.this, GlobalLibraryActivity.class);
         MainActivity.this.startActivity(intent);
     }
 
@@ -42,30 +43,53 @@ public class MainActivity extends AppCompatActivity {
     public void click3(View view) {
         Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
         MainActivity.this.startActivity(intent);
-
-
-
-//        //add shit
-//        Book book = new Book(String.valueOf(new Random().nextInt()), 228,
-//                new String[]{"М.В. Чертила", "Е.С. Чертила"},
-//                new String[]{"MSU", "MPGU"}, "");
-//        loader.addBook(book);
     }
 
-    public void click4(View view) {
-//        //show shit
-//        String textToShow = "nothing to show";
-//        List<Book> booksList = loader.getBooksList();
-//        if (booksList.size() != 0){
-//            textToShow = "";
-//            textToShow += "there is " + booksList.size() + " entries: [";
-//            textToShow += booksList.stream().map(Book::getName).collect(Collectors.joining(","));
-//            textToShow += "]";
-//        }
-//        Toast.makeText(this, textToShow, Toast.LENGTH_SHORT).show();
-    }
+    public void click4(View view) {}
 
-    public void click5(View view) {
+    public void click5(View view) throws JSONException {
+        //reload books
+        for (Book b : loader.getBooksList()) {
+            loader.deleteBook(b.getId());
+        }
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        JSONObject auth = new JSONObject();
+        auth.put("username", Determinator.globalUsername);
+        auth.put("password", Determinator.globalPassword);
+
+        JSONObject arguments = new JSONObject();
+        arguments.put("authentication", auth);
+        arguments.put("book_id", 1);
+
+        String url = Determinator.URL + "/book/get";
+        String emulatorUrl = "http://10.0.2.2:3000/book/get";
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
+                url,
+                arguments,
+                response -> {
+                    Log.i("DET", "reload books: status 200");
+                    Log.i(Determinator.TAG, "reload books: " + response.toString());
+                    Book b = null;
+                    try {
+                        b = new Book();
+                        b.setId(response.getInt("id"));
+                        b.setTitle(response.getString("title"));
+                        b.setYear(response.getInt("year"));
+                        b.setAuthors(response.getString("author").split(","));
+                        b.setGroups(response.getString("roles").split(","));
+                        b.setContent(response.getString("content"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    loader.addBook(b);
+                },
+                error -> {
+                    Log.e("DET", "reload books: " + error.getMessage());
+                });
+        queue.add(request);
 
     }
 }

@@ -3,8 +3,6 @@ package ru.mikhail.determinatorapp.common;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-import ru.mikhail.determinatorapp.common.Book;
-
 @DatabaseTable(tableName = "books")
 public class BookDTO {
     @DatabaseField(generatedId = true, columnName = "id")
@@ -23,7 +21,7 @@ public class BookDTO {
     public BookDTO() {}
 
     public BookDTO(Book book) {
-        this(book.getId(), book.getName(), book.getYear(), book.getAuthors(), book.getGroups(), book.getContent());
+        this(book.getId(), book.getTitle(), book.getYear(), book.getAuthors(), book.getGroups(), book.getContent());
     }
 
     public BookDTO(int id, String name, int year, String[] authors, String[] groups, String content) {

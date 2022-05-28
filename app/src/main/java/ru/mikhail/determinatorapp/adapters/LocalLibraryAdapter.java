@@ -9,20 +9,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ru.mikhail.determinatorapp.R;
 import ru.mikhail.determinatorapp.activities.DeterminatorBookActivity;
 import ru.mikhail.determinatorapp.common.Book;
 
-public class BooksAdapter extends ArrayAdapter<Book> {
+public class LocalLibraryAdapter extends ArrayAdapter<Book> {
     private List<Book> items;
     private LayoutInflater inflater;
     private Context context;
     private int layout;
 
-    public BooksAdapter(Context context, int resource, List<Book> items) {
+    public LocalLibraryAdapter(Context context, int resource, List<Book> items) {
         super(context, resource, items);
         this.context = context;
         this.items = items;
@@ -41,8 +40,8 @@ public class BooksAdapter extends ArrayAdapter<Book> {
         }
         final Book book = items.get(position);
 
-        localBookViewHolder.name.setText(items.get(position).getName());
-        localBookViewHolder.smallName.setText(items.get(position).getName());
+        localBookViewHolder.name.setText(items.get(position).getTitle());
+        localBookViewHolder.smallName.setText(items.get(position).getTitle());
         localBookViewHolder.authors.setText(String.join(", ", items.get(position).getAuthors()));
         localBookViewHolder.hiddenId.setText(String.valueOf(position));
 

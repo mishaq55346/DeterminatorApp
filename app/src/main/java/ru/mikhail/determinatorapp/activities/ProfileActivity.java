@@ -15,8 +15,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ru.mikhail.determinatorapp.Determinator;
 import ru.mikhail.determinatorapp.R;
-import ru.mikhail.determinatorapp.common.UserDTO;
 
 public class ProfileActivity extends AppCompatActivity {
     TextView fio;
@@ -29,9 +29,6 @@ public class ProfileActivity extends AppCompatActivity {
     TextView emailTitle;
     TextView groupTitle;
     TextView errorMessage;
-
-    String globalUsername = "admin";
-    String globalPassword = "password";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,13 +64,13 @@ public class ProfileActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JSONObject auth = new JSONObject();
-        auth.put("username", globalUsername);
-        auth.put("password", globalPassword);
+        auth.put("username", Determinator.globalUsername);
+        auth.put("password", Determinator.globalPassword);
 
         JSONObject arguments = new JSONObject();
         arguments.put("authentication", auth);
 
-        String url = "http://192.168.1.34:3000/user/info";
+        String url = Determinator.URL + "/user/info";
         String emulatorUrl = "http://10.0.2.2:3000/user/info";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
