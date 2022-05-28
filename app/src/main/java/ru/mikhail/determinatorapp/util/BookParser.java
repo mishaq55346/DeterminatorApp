@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import ru.mikhail.determinatorapp.determination.Card;
-import ru.mikhail.determinatorapp.determination.LifeForm;
+import ru.mikhail.determinatorapp.common.LifeForm;
 import ru.mikhail.determinatorapp.determination.Node;
 
 public class BookParser {

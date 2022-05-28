@@ -1,26 +1,25 @@
 package ru.mikhail.determinatorapp.activities;
 
-import static ru.mikhail.determinatorapp.DeterminatorApp.*;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONException;
 
+import java.io.Serializable;
 import java.util.List;
 
-import ru.mikhail.determinatorapp.DeterminatorApp;
 import ru.mikhail.determinatorapp.R;
 import ru.mikhail.determinatorapp.adapters.ChoiceAdapter;
 import ru.mikhail.determinatorapp.common.Book;
 import ru.mikhail.determinatorapp.determination.Card;
+import ru.mikhail.determinatorapp.common.LifeForm;
+import ru.mikhail.determinatorapp.determination.Node;
 import ru.mikhail.determinatorapp.util.BookParser;
 import ru.mikhail.determinatorapp.util.LocalLibraryLoader;
 
@@ -32,12 +31,15 @@ public class DeterminationActivity extends AppCompatActivity {
     private Card current;
     private Book book;
     private BookParser parser;
+    private ListView choiceList;
+
+    private LifeForm lifeForm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_determination);
-
+        lifeForm = new LifeForm();
         loader = new LocalLibraryLoader();
         Intent intent = getIntent();
         book = intent.getParcelableExtra("book");
@@ -53,21 +55,47 @@ public class DeterminationActivity extends AppCompatActivity {
                 .findFirst()
                 .orElseGet(null);
 
-        ListView choiceList = findViewById(R.id.choice_list);
+        choiceList = findViewById(R.id.choice_list);
+        choiceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Node touched = current.getNodes().get(position);
+                lifeForm.addDescription(touched.getParameters());
+                if (touched.getKeyToGo() == -1){
+                    Intent intent = new Intent(DeterminationActivity.this, ResultsActivity.class);
+                    intent.putExtra("lifeform", (Serializable) lifeForm.getDescriptionMap());
+                    current = cards
+                            .stream()
+                            .filter(card -> card.getKey()==0)
+                            .findFirst()
+                            .orElseGet(null);
+                    update();
+                    DeterminationActivity.this.startActivity(intent);
+                }
+                else {
+                    callNext(touched.getKeyToGo());
+                }
+            }
+        });
         adapter = new ChoiceAdapter(this, R.layout.choice_fragment, current.getNodes());
         choiceList.setAdapter(adapter);
-        choiceList.setOnItemClickListener((parent, view, position, id) -> {
-            Log.i(TAG, String.format("item click: id=%d, pos=%d",id, position));
-            Toast.makeText(this, "dsadasdasd", Toast.LENGTH_SHORT).show();
-        });
 
     }
 
-    private Card findCardByKey(List<Card> cards, int key){
+    private Card findCardByKey(int key){
         return cards
                 .stream()
                 .filter(c -> c.getKey() == key)
                 .findFirst()
                 .orElseGet(null);
+    }
+    private void callNext(int cardKey){
+        current = findCardByKey(cardKey);
+        update();
+    }
+    private void update(){
+        adapter = new ChoiceAdapter(this, R.layout.choice_fragment, current.getNodes()
+        );
+        choiceList.setAdapter(adapter);
     }
 }

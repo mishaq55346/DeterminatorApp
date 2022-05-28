@@ -24,6 +24,8 @@ public class ChoiceAdapter extends ArrayAdapter<Node> {
         this.inflater = LayoutInflater.from(context);
     }
 
+
+
     public View getView(int position, View convertView, ViewGroup parent) {
         final LocalChoiceViewHolder localChoiceViewHolder;
         if (convertView == null) {
@@ -33,22 +35,20 @@ public class ChoiceAdapter extends ArrayAdapter<Node> {
         } else {
             localChoiceViewHolder = (LocalChoiceViewHolder) convertView.getTag();
         }
-
         localChoiceViewHolder.text.setText(items.get(position).getDescription());
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        localChoiceViewHolder.hidden_key.setText(String.valueOf(items.get(position).getKeyToGo()));
         return convertView;
     }
 
     private class LocalChoiceViewHolder {
         TextView text;
+        TextView hidden_key;
 
         LocalChoiceViewHolder(View view) {
             text = view.findViewById(R.id.choice_text_fragment);
+            hidden_key = view.findViewById(R.id.hidden_key_fragment);
         }
+
     }
+
 }

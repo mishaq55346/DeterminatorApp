@@ -14,120 +14,142 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="29dp"
-        android:text="Определитель"
+        android:text="Результаты определения"
         android:textColor="@color/custom_text_active"
         android:theme="@style/Theme.DeterminatorApp"
-        app:layout_constraintBottom_toTopOf="@+id/determinatorNameTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/determinatorRolesTitle"
+        android:id="@+id/profile_group_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:text="Видно для групп:"
+        android:layout_marginTop="20dp"
+        android:text="Семейство"
         android:textColor="@color/custom_text_active"
         android:theme="@style/Theme.DeterminatorApp"
-        app:layout_constraintBottom_toTopOf="@+id/determinatorRoles"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/determinatorYear" />
+        app:layout_constraintTop_toBottomOf="@+id/results_otryad" />
 
     <TextView
-        android:id="@+id/determinatorYearTitle"
+        android:id="@+id/profile_group_title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:text="Издание:"
+        android:layout_marginTop="20dp"
+        android:text="Род"
         android:textColor="@color/custom_text_active"
         android:theme="@style/Theme.DeterminatorApp"
-        app:layout_constraintBottom_toTopOf="@+id/determinatorYear"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/determinatorAuthor" />
+        app:layout_constraintTop_toBottomOf="@+id/results_semeystvo" />
 
     <TextView
-        android:id="@+id/determinatorAuthorTitle"
+        android:id="@+id/profile_group_title3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:text="Автор(ы):"
+        android:layout_marginTop="20dp"
+        android:text="Вид"
         android:textColor="@color/custom_text_active"
         android:theme="@style/Theme.DeterminatorApp"
-        app:layout_constraintBottom_toTopOf="@+id/determinatorAuthor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/determinatorName" />
+        app:layout_constraintTop_toBottomOf="@+id/results_rod" />
 
     <TextView
-        android:id="@+id/determinatorNameTitle"
+        android:id="@+id/profile_university_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:text="Название:"
+        android:layout_marginTop="20dp"
+        android:text="Отряд"
         android:textColor="@color/custom_text_active"
         android:theme="@style/Theme.DeterminatorApp"
-        app:layout_constraintBottom_toTopOf="@+id/determinatorName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/results_podclass" />
+
+    <TextView
+        android:id="@+id/profile_email_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:text="Подкласс"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/results_class" />
+
+    <TextView
+        android:id="@+id/profile_fio_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        android:text="Класс"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/screenName" />
 
     <TextView
-        android:id="@+id/determinatorAuthor"
+        android:id="@+id/results_podclass"
         android:layout_width="327dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginBottom="20dp"
         android:textColor="@color/custom_text_active"
         android:theme="@style/Theme.DeterminatorApp"
-        app:layout_constraintBottom_toTopOf="@+id/determinatorYearTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/determinatorAuthorTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_email_title" />
 
     <TextView
-        android:id="@+id/determinatorRoles"
+        android:id="@+id/results_semeystvo"
         android:layout_width="327dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:textColor="@color/custom_text_active"
         android:theme="@style/Theme.DeterminatorApp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/determinatorRolesTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_group_title" />
 
     <TextView
-        android:id="@+id/determinatorYear"
+        android:id="@+id/results_rod"
         android:layout_width="327dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginBottom="23dp"
         android:textColor="@color/custom_text_active"
         android:theme="@style/Theme.DeterminatorApp"
-        app:layout_constraintBottom_toTopOf="@+id/determinatorRolesTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/determinatorYearTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_group_title2" />
 
     <TextView
-        android:id="@+id/determinatorName"
+        android:id="@+id/results_vid"
         android:layout_width="327dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginBottom="19dp"
         android:textColor="@color/custom_text_active"
         android:theme="@style/Theme.DeterminatorApp"
-        app:layout_constraintBottom_toTopOf="@+id/determinatorAuthorTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/determinatorNameTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_group_title3" />
 
-    <Button
-        android:id="@+id/begin_determination_button"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/results_otryad"
+        android:layout_width="327dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="164dp"
-        android:background="@drawable/begin_button"
-        android:onClick="beginDetermination"
-        android:text="Начать определение"
-        android:textColor="@color/custom_background_main"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginStart="44dp"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_university_title" />
+
+    <TextView
+        android:id="@+id/results_class"
+        android:layout_width="327dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:textColor="@color/custom_text_active"
+        android:theme="@style/Theme.DeterminatorApp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_fio_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
