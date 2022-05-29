@@ -17,12 +17,14 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+
 import ru.mikhail.determinatorapp.Determinator;
 
 public class RequestHandler {
 
-    public static void sendRequest(RequestType requestType, Context context,
-                                   JSONObject arguments, Response.Listener<JSONObject> response,
+    public static void sendRequest(RequestType requestType, Context context, JSONObject arguments,
+                                   Response.Listener<JSONObject> response,
                                    Response.ErrorListener error) {
         RequestQueue queue = Volley.newRequestQueue(context);
 
@@ -39,11 +41,28 @@ public class RequestHandler {
             credentials.put("username", globalUsername);
             credentials.put("password", globalPassword);
             requestJson.put("authentication", credentials);
-            requestJson.put(argumentName, argument);
-            Log.i(Determinator.TAG, "getRequestJson: " + requestJson.toString());//TODO залоггировать ошибку
+            if (argumentName != null && !argumentName.isEmpty()) {
+                requestJson.put(argumentName, argument);
+            }
+            Log.i(Determinator.TAG, "getRequestJson: " + requestJson.toString());
 
         } catch (JSONException e) {
-            Log.e(Determinator.TAG, "getRequestJson: ", e);//TODO залоггировать ошибку
+            Log.e(Determinator.TAG, "getRequestJson: ", e);
+        }
+        return requestJson;
+    }
+
+    public static JSONObject getDefaultRequestJson(Map<String, String> credentialsMap) {
+        JSONObject requestJson = new JSONObject();
+        JSONObject credentials = new JSONObject();
+        try {
+            credentials.put("username", credentialsMap.get("username"));
+            credentials.put("password", credentialsMap.get("password"));
+            requestJson.put("authentication", credentials);
+            Log.i(Determinator.TAG, "getRequestJson: " + requestJson.toString());
+
+        } catch (JSONException e) {
+            Log.e(Determinator.TAG, "getRequestJson: ", e);
         }
         return requestJson;
     }

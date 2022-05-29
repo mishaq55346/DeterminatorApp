@@ -1,5 +1,6 @@
 package ru.mikhail.determinatorapp.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +35,10 @@ public class GlobalLibraryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Determinator.globalUsername == null || Determinator.globalUsername.isEmpty()) {
+            Intent intent = new Intent(GlobalLibraryActivity.this, GlobalLibraryActivity.class);
+            GlobalLibraryActivity.this.startActivity(intent);
+        }
         setContentView(R.layout.activity_global_library);
         loader = new LocalLibraryLoader();
         bookListView = findViewById(R.id.library_list);
@@ -68,7 +73,7 @@ public class GlobalLibraryActivity extends AppCompatActivity {
                             String title = book.getString("title");
                             int year = book.getInt("year");
                             String roles = book.getString("roles");
-                            booksList.add(new Book(id, title, year, author.split(","), roles.split(","),""));
+                            booksList.add(new Book(id, title, year, author.split(","), roles.split(","), ""));
                         }
                         adapter.notifyDataSetChanged();
                     } catch (JSONException e) {

@@ -6,8 +6,10 @@ import ru.mikhail.determinatorapp.orm.HelperFactory;
 
 public class Determinator extends Application {
     public static final String TAG = "DET";
-    public static String globalUsername = "admin";
-    public static String globalPassword = "password";
+    public static String globalUsername = null;
+    public static String globalPassword = null;
+//    public static String globalUsername = "admin";
+//    public static String globalPassword = "password";
     public static final String URL = "http://10.0.2.2:3000";
 //    public static final String URL = "http://192.168.237.128:3000";
 
