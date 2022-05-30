@@ -1,4 +1,4 @@
-package ru.mikhail.determinatorapp.activities;
+package ru.mikhail.determinatorapp.activities.MainActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,12 +14,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
 import ru.mikhail.determinatorapp.Determinator;
 import ru.mikhail.determinatorapp.R;
+import ru.mikhail.determinatorapp.activities.DeterminationActivity;
+import ru.mikhail.determinatorapp.activities.ResultsActivity;
 import ru.mikhail.determinatorapp.adapters.GlobalLibraryAdapter;
 import ru.mikhail.determinatorapp.common.Book;
 import ru.mikhail.determinatorapp.util.LocalLibraryLoader;
@@ -90,5 +93,13 @@ public class GlobalLibraryActivity extends AppCompatActivity {
                     }
                     adapter.notifyDataSetChanged();
                 });
+    }
+    public void goToLocalLibrary(View view){
+        Intent intent = new Intent(GlobalLibraryActivity.this, LocalLibraryActivity.class);
+        GlobalLibraryActivity.this.startActivity(intent);
+    }
+    public void goToProfile(View view){
+        Intent intent = new Intent(GlobalLibraryActivity.this, ProfileActivity.class);
+        GlobalLibraryActivity.this.startActivity(intent);
     }
 }

@@ -1,6 +1,8 @@
-package ru.mikhail.determinatorapp.activities;
+package ru.mikhail.determinatorapp.activities.MainActivities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,5 +32,13 @@ public class LocalLibraryActivity extends AppCompatActivity {
         adapter = new LocalLibraryAdapter(this, R.layout.local_book, booksList);
 
         bookList.setAdapter(adapter);
+    }
+    public void goToGlobalLibrary(View view){
+        Intent intent = new Intent(LocalLibraryActivity.this, GlobalLibraryActivity.class);
+        LocalLibraryActivity.this.startActivity(intent);
+    }
+    public void goToProfile(View view){
+        Intent intent = new Intent(LocalLibraryActivity.this, ProfileActivity.class);
+        LocalLibraryActivity.this.startActivity(intent);
     }
 }

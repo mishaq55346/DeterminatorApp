@@ -11,12 +11,12 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import ru.mikhail.determinatorapp.Determinator;
 import ru.mikhail.determinatorapp.R;
+import ru.mikhail.determinatorapp.activities.MainActivities.GlobalLibraryActivity;
 import ru.mikhail.determinatorapp.util.RequestHandler;
 
 public class LoginActivity extends AppCompatActivity {

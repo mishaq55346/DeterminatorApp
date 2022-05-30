@@ -25,9 +25,59 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/screenName" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/custom_text_active"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="409dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/bottom_search_button"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/bottom_search_button"
+            android:onClick="goToGlobalLibrary"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/search_icon" />
+
+        <ImageButton
+            android:id="@+id/bottom_local_button"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/bottom_search_button"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/local_library_icon" />
+
+        <ImageButton
+            android:id="@+id/bottom_profile_button"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/bottom_search_button"
+            android:onClick="goToProfile"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/profile_icon" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

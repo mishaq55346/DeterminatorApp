@@ -1,5 +1,6 @@
-package ru.mikhail.determinatorapp.activities;
+package ru.mikhail.determinatorapp.activities.MainActivities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -96,5 +97,13 @@ public class ProfileActivity extends AppCompatActivity {
                     Log.e("DET", "onResponse: " + error.getMessage());
                 });
         queue.add(request);
+    }
+    public void goToGlobalLibrary(View view){
+        Intent intent = new Intent(ProfileActivity.this, GlobalLibraryActivity.class);
+        ProfileActivity.this.startActivity(intent);
+    }
+    public void goToLocalLibrary(View view){
+        Intent intent = new Intent(ProfileActivity.this, LocalLibraryActivity.class);
+        ProfileActivity.this.startActivity(intent);
     }
 }
